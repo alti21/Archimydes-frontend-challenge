@@ -8,8 +8,8 @@ const setLoginState = (loginData) => {
   };
 };
 
-export const login = (loginInput) => {
-    const { username, password } = loginInput;
+export const login = (loginInput) => { //our login action
+    const { email, password } = loginInput;
     return (dispatch) => {  // don't forget to use dispatch here!
       return fetch('http://localhost:3000/api/v1/signin', {
         method: 'POST',
@@ -22,9 +22,9 @@ export const login = (loginInput) => {
         .then((response) => response.json()) //json will be the response body
         .then((json) => {
         // if (json.msg === 'success') { // response success checking logic could differ
-            dispatch(setLoginState({ ...json, userId: username })); // our action is called here
+            dispatch(setLoginState({ ...json, userId: email })); // our action is called here
         //   } else {
-        //     alert('Login Failed', 'Username or Password is incorrect');
+        //     alert('Login Failed', 'Email or Password is incorrect');
         //  }
         })
         .catch((err) => {
