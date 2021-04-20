@@ -23,14 +23,16 @@ const Login = () => {
         userLogin(email, password)
     }
 
-    
+    const disabled = () => {
+        return email === "" || password === ""
+    }
 
     return (
         <div>
             <form onSubmit={handleSubmit} className='login-form'>
                 <input type='email' name='email' placeholder='Email' onChange={handleEmailChange}/>
                 <input type='password' name='password' placeholder='Password' onChange={handlePasswordChange}/>
-                <button>Login</button>
+                <button disabled={disabled()}>Login</button>
                 <button>Switch to {}</button>
             </form>
         </div>
