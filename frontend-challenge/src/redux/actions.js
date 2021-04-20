@@ -1,0 +1,46 @@
+import * as t from './actionTypes';
+
+// this is what our action should look like which dispatches the "payload" to reducer
+const setLoginState = (loginData) => {
+  return {
+    type: t.SET_LOGIN_STATE,
+    payload: loginData,
+  };
+};
+
+export const login = (loginInput) => {
+    const { username, password } = loginInput;
+    return (dispatch) => {  // don't forget to use dispatch here!
+      return fetch('http://localhost:3000/api/v1/signin', {
+        method: 'POST',
+        headers: {  
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(loginInput),
+      })
+        .then((response) => response.json()) //json will be the response body
+        .then((json) => {
+        // if (json.msg === 'success') { // response success checking logic could differ
+            dispatch(setLoginState({ ...json, userId: username })); // our action is called here
+        //   } else {
+        //     alert('Login Failed', 'Username or Password is incorrect');
+        //  }
+        })
+        .catch((err) => {
+          alert('Login Failed', 'Some error occured, please retry');
+          console.log(err);
+        });
+    };
+  };
+
+  /**
+   JSON reponse body:
+   {
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZmlyc3ROYW1lIjoiSGlsZGEiLCJsYXN0TmFtZSI6IkRheSIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTYxODk0NzE3MH0.llwr_9ku7ilzlfXdQeKAJ3ZXu5zB1xSX8r954z9VrnM",
+  "id": 2,
+  "firstName": "Hilda",
+  "lastName": "Day",
+  "role": "Admin"
+}
+   */
