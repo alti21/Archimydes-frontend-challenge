@@ -7,9 +7,13 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        
+        <Switch>
+          <Route path="/">
+            <Login />
+          </Route>
+          
+        </Switch>
       </BrowserRouter>
-      <Login />
     </div>
   );
 }
