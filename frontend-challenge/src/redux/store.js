@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import rootReducer from '../reducers';
+import { loginReducer } from './loginReducer';
+import logger from 'redux-logger'
 
 const rootReducer = combineReducers({
     loginReducer: loginReducer,
@@ -9,6 +10,7 @@ const rootReducer = combineReducers({
 export const store = createStore(
     rootReducer,
     applyMiddleware(
-        thunkMiddleware
+        thunkMiddleware,
+        logger
     )
 );

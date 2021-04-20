@@ -22,6 +22,7 @@ export const login = (loginInput) => { //our login action
         .then((response) => response.json()) //json will be the response body
         .then((json) => {
         // if (json.msg === 'success') { // response success checking logic could differ
+           // console.log(json)
             dispatch(setLoginState({ ...json, userId: email })); // our action is called here
         //   } else {
         //     alert('Login Failed', 'Email or Password is incorrect');
