@@ -84,7 +84,7 @@ export const getStories = () => {
         //  }
         })
         .catch((err) => {
-          alert('Login Failed', 'Some error occured, please retry');
+          alert('Get stories failed', 'Some error occured, please retry');
           console.log(err);
         });
     };
@@ -112,7 +112,7 @@ export const viewStory = id => {
         //  }
         })
         .catch((err) => {
-          alert('Login Failed', 'Some error occured, please retry');
+          alert('View stories failed', 'Some error occured, please retry');
           console.log(err);
         });
     };
@@ -140,6 +140,7 @@ export const createStory = storyInput => {
       return fetch('http://localhost:3000/api/v1/stories', {
         method: 'POST',
         headers: {  
+          credentials: 'include',
           Accept: 'application/json',
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
@@ -164,7 +165,7 @@ export const createStory = storyInput => {
         //  }
         })
         .catch((err) => {
-          alert('Some error occured, please retry');
+          alert('Create story failed, please retry');
           console.log(err);
         });
     };
