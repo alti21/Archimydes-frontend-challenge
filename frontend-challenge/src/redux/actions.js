@@ -182,6 +182,7 @@ export const setStatus = (id, status) => {
       return fetch(`http://localhost:3000/api/v1/stories/${id}/${status}`, {
         method: 'PUT',
         headers: {  
+          credentials: 'include',
           Accept: 'application/json',
           'Content-Type': 'text/html',
           'Authorization': `Bearer ${token}`
