@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 // return the user data from the session storage
 export const getUser = () => {
     const userStr = sessionStorage.getItem('user');

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { login, roleChange } from '../redux/actions' //OUR ACTIONS
+import { login } from '../redux/actions' 
 import { useSelector } from 'react-redux'
 import history from '../utils/history';
 import { withRouter } from 'react-router-dom';

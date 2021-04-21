@@ -40,11 +40,6 @@ export const storyReducer = (state = [], action) => {
         ...state,
         story: action.payload,
       };
-    // case t.ADD_STORY:
-    //   return {
-    //     ...state,
-    //     stories: [...state.stories, action.payload], //stories is an object
-    //   };
     case t.LOGOUT:
       return {
         stories: [{complexity: "",
@@ -58,15 +53,3 @@ export const storyReducer = (state = [], action) => {
       return state;
   } 
 }
-
-// export const roleReducer = (state = initialState, action) => {
-//   switch (action.type) {
-//     case t.SET_ROLE_STATE:
-//       return {
-//         ...state,
-//         role: action.payload,
-//       };
-//     default:
-//       return state;
-//   } 
-// }

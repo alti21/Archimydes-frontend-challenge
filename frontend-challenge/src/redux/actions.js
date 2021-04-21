@@ -47,13 +47,7 @@ export const login = (loginInput) => { //our login action
       })
         .then((response) => response.json()) //json will be the response body
         .then((json) => {
-        // if (json.msg === 'success') { // response success checking logic could differ
-           // console.log(json)
             dispatch(setLoginState({ ...json, userId: email, isAdmin: isAdmin })); // our action is called here with object as parameter, this is our payload
-            //we appended json object to our state
-            //   } else {
-        //     alert('Login Failed', 'Email or Password is incorrect');
-        //  }
             setUserSession(json.token, json.lastName)
         })
         .catch((err) => {
@@ -75,13 +69,8 @@ export const getStories = () => {
       })
         .then((response) => response.json()) //json will be the response body
         .then((json) => {
-        // if (json.msg === 'success') { // response success checking logic could differ
             console.log(json)
             dispatch(getStoryState( [...json ])); // our action is called here with object as parameter, this is our payload
-            //we appended json object to our state
-            //   } else {
-        //     alert('Login Failed', 'Email or Password is incorrect');
-        //  }
         })
         .catch((err) => {
           alert('Get stories failed', 'Some error occured, please retry');
@@ -102,14 +91,9 @@ export const viewStory = id => {
       })
         .then((response) => response.json()) //json will be the response body
         .then((json) => {
-        // if (json.msg === 'success') { // response success checking logic could differ
             console.log(json)
-            
+
             dispatch(getSingleStoryState( {...json } )); // our action is called here with object as parameter, this is our payload
-            //we appended json object to our state
-            //   } else {
-        //     alert('Login Failed', 'Email or Password is incorrect');
-        //  }
         })
         .catch((err) => {
           alert('View stories failed', 'Some error occured, please retry');
@@ -121,7 +105,6 @@ export const viewStory = id => {
 export const roleChange = () => {
     return {
         type: t.SET_ROLE_STATE,
-        //payload: role
       };
 }
 
@@ -149,9 +132,9 @@ export const createStory = storyInput => {
       })
         .then((response) => response.json()) //json will be the response body
         .then((json) => {
-        // if (json.msg === 'success') { // response success checking logic could differ
+   
             console.log(json)
-            //dispatch(setStoryState( [...json ]));
+ 
             dispatch(setStoryState({  // our action is called here with object as parameter, this is our payload
                 summary: summary,
                 description: description,
@@ -160,9 +143,7 @@ export const createStory = storyInput => {
                 time: time,
                 cost: cost
             })); // our action is called here
-        //   } else {
-        //     alert('Login Failed', 'Email or Password is incorrect');
-        //  }
+  
         })
         .catch((err) => {
           alert('Create story failed, please retry');
@@ -191,14 +172,9 @@ export const setStatus = (id, status) => {
       })
         .then((response) => response.json()) //json will be the response body
         .then((json) => {
-        // if (json.msg === 'success') { // response success checking logic could differ
+
             console.log(json)
-            
-         //   dispatch(getStoryState( {...json } )); // our action is called here with object as parameter, this is our payload
-            //we appended json object to our state
-            //   } else {
-        //     alert('Login Failed', 'Email or Password is incorrect');
-        //  }
+       
         })
         .catch((err) => {
           alert('Login Failed', 'Some error occured, please retry');

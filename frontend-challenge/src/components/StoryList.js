@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { addStory } from '../redux/actions'
-import { getStories, viewStory } from '../redux/actions' //OUR ACTIONS
+import { getStories, viewStory } from '../redux/actions'
 import history from '../utils/history';
 import { withRouter } from 'react-router-dom';
 
@@ -12,14 +11,11 @@ const StoryList = () => {
     const usedispatch = useDispatch();
     const userStories = () => usedispatch(getStories());
     const viewStories = (id) => usedispatch(viewStory(id));
-    // let story = {}
       useEffect(() => {
         userStories()
-
      }, []);
      console.log('test')
      console.log(currStories)
-
 
     const admin = useSelector((state)=> state.loginReducer.isAdmin)
   
@@ -43,17 +39,14 @@ const StoryList = () => {
 
     return (
         <div>
-            
             <section>
                 <header>
-                    
                         <div className='col'><strong>Summary</strong></div>
                         <div className='col'><strong>Description</strong></div>
                         <div className='col'><strong>Type</strong></div>
                         <div className='col'><strong>Complexity</strong></div>
                         <div className='col'><strong>Time</strong></div>
                         <div className='col'><strong>Cost</strong></div>
-                   
                 </header>
                 
                 {currStories.map(story => {
