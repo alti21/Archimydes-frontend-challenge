@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login, roleChange } from '../redux/actions' //OUR ACTIONS
 import { useSelector } from 'react-redux'
-import { initialState } from '../redux/initialState';
-import { Link } from 'react-router-dom'
 import history from '../utils/history';
 import { withRouter } from 'react-router-dom';
 
@@ -44,8 +42,6 @@ const Login = () => {
         return email === "" || password === ""
     }
 
-   
-
     return (
         <div>
             <form className='login-form'>
@@ -60,4 +56,3 @@ const Login = () => {
 
 export default withRouter(Login);
 
-//for is not being submitted

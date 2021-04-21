@@ -19,6 +19,18 @@ export const loginReducer = (state = initialState, action) => {
   } 
 };
 
+export const storyReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case t.CREATE_STORY:
+      return {
+        ...state,
+        role: action.payload,
+      };
+    default:
+      return state;
+  } 
+}
+
 // export const roleReducer = (state = initialState, action) => {
 //   switch (action.type) {
 //     case t.SET_ROLE_STATE:

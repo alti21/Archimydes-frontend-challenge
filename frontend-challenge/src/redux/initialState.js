@@ -4,6 +4,6 @@ export const initialState = {
     isLoggedIn: false,
     userId: '',
     role: 'user',
-    token: getToken,
+    token: getToken(),
     data: '',
   };
