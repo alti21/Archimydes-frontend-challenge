@@ -131,9 +131,10 @@ export const logout = () => {
   };
 }
 
-console.log(token)
+
 
 export const createStory = storyInput => {
+  console.log(token)
     const { summary, description, type, complexity, time, cost } = storyInput;
     return (dispatch) => {  // don't forget to use dispatch here!
       return fetch('http://localhost:3000/api/v1/stories', {

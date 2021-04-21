@@ -28,7 +28,7 @@ const StoryList = () => {
         console.log('test')
         if(admin) {//admin click on story to view using get request with id, use {story.id} in this file
             viewStories(id)
-            setTimeout(()=> history.push("/userStory"), 1000 )
+            setTimeout(()=> history.push("/Archimydes-frontend-challenge/userStory"), 1000 )
         }
     }
 

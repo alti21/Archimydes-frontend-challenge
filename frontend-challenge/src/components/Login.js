@@ -13,9 +13,6 @@ const Login = () => {
 
     const usedispatch = useDispatch();
     const userLogin = (email, password, isAdmin) => usedispatch(login({'email': email, 'password': password, 'isAdmin': isAdmin }));
-    const switchToAdmin = () => usedispatch(roleChange('admin'));
-    const switchToUser = () => usedispatch(roleChange('user'));
-    const currentRole = useSelector((state)=> state.loginReducer.role)
 
     const handleRoleChange = e => {
 
@@ -36,7 +33,7 @@ const Login = () => {
     const handleSubmit = e => {
         e.preventDefault();
         userLogin(email, password, isAdmin)
-        setTimeout(()=> history.push("/user"), 1000 );
+        setTimeout(()=> history.push("/Archimydes-frontend-challenge/user"), 1000 );
     }
 
     const disabled = () => {

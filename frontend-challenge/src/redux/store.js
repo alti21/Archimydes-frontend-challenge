@@ -2,8 +2,6 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { loginReducer, storyReducer } from './reducers';
 import logger from 'redux-logger'
-import { roleChange } from './actions';
-import { initialState } from './initialState';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 

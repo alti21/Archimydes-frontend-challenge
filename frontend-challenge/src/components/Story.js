@@ -12,7 +12,7 @@ const Story = () => {
 
     const handleClick = (id, status) => {
         updateStatus(id, status)
-        setTimeout(()=> history.push("/userStories"), 1000 )
+        setTimeout(()=> history.push("/Archimydes-frontend-challenge/userStories"), 1000 )
     }
 
     return (

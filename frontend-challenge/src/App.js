@@ -23,12 +23,12 @@ function App() {
 
       <Router history={history}>
         <Switch>
-          <Route exact path="/" component={Login} />
-          <PrivateRoute path="/user" component={CreateStory}/>
-          <PrivateRoute path="/userStories" component={StoryList}/>
-          <PrivateRoute path="/userStory" component={Story}/>
+          <Route exact path="/Archimydes-frontend-challenge" component={Login} />
+          <PrivateRoute path="/Archimydes-frontend-challenge/user" component={CreateStory}/>
+          <PrivateRoute path="/Archimydes-frontend-challenge/userStories" component={StoryList}/>
+          <PrivateRoute path="/Archimydes-frontend-challenge/userStory" component={Story}/>
         </Switch>
-        <Link to="/" onClick={handleLogout}>Logout</Link>
+        <Link to="/Archimydes-frontend-challenge/" onClick={handleLogout}>Logout</Link>
       </Router>
     </div>
   );

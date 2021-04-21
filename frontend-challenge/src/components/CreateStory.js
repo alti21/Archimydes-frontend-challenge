@@ -51,7 +51,7 @@ const CreateStory = () => {
     const handleSubmit = e => {
         e.preventDefault();
         userCreateStory(summary,description,type,complexity,time,cost)
-        setTimeout(()=> history.push("/userStories"), 1000 );
+        setTimeout(()=> history.push("/Archimydes-frontend-challenge/userStories"), 1000 );
       //setTimeout(()=> console.log(currStory) ,1000)
     }
 
