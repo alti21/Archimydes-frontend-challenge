@@ -15,10 +15,11 @@ const Login = () => {
     const switchToUser = () => usedispatch(roleChange('user'));
     const currentRole = useSelector((state)=> state.loginReducer.role)
 
-    const handleRoleChange = () => {
+    const handleRoleChange = e => {
+        e.preventDefault();
         if(currentRole === 'user')
             switchToAdmin();
-        else if(currentRole === 'admin')
+        else if(currentRole === 'admin' )
             switchToUser()
     }
     
@@ -48,7 +49,7 @@ const Login = () => {
                 <input type='password' name='password' placeholder='Password' onChange={handlePasswordChange}/>
                 <button disabled={disabled()}>Login</button>
             </form>
-            <button onClick={handleRoleChange}>Switch to {currentRole}</button>
+            <button onClick={handleRoleChange}>Switch to {currentRole === 'user' ? 'admin' : 'user'}</button>
         </div>
     )
 }

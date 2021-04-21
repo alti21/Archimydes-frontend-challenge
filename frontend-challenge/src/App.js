@@ -1,20 +1,20 @@
-import logo from './logo.svg';
 import './App.scss';
 import Login from './components/Login';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import PrivateRoute from './utils/PrivateRoute';
+import CreateStory from './components/CreateStory';
 
 function App() {
 
 
   return (
     <div className="App">
+
       <BrowserRouter>
         <Switch>
-          <Route path="/">
-            <Login />
-          </Route>
-          
+          <Route path="/user" component={Login} />
+          <Route path="/" component={CreateStory}/>
+
         </Switch>
       </BrowserRouter>
     </div>

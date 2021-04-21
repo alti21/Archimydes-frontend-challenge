@@ -3,6 +3,28 @@
   min-height: 100vh;
 }
 
+.create-story-form {
+  margin: 5em auto 5em auto;
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+
+  & > input {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  & > textarea {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  & > select {
+    margin: 1em auto
+  }
+
+}
+
 .login-form {
   margin: 5em auto 5em auto;
   display: flex;
@@ -17,3 +39,4 @@
     margin: 1em auto
   }
 }
+
