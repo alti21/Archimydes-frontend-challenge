@@ -1,4 +1,5 @@
 import * as t from './actionTypes';
+import { setUserSession } from '../utils/Common';
 
 // this is what our action should look like which dispatches the "payload" to reducer
 const setLoginState = (loginData) => {
@@ -27,6 +28,7 @@ export const login = (loginInput) => { //our login action
         //   } else {
         //     alert('Login Failed', 'Email or Password is incorrect');
         //  }
+            setUserSession(json.token, json.lastName)
         })
         .catch((err) => {
           alert('Login Failed', 'Some error occured, please retry');

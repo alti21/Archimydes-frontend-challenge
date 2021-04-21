@@ -3,6 +3,9 @@ import { useDispatch } from "react-redux";
 import { login, roleChange } from '../redux/actions' //OUR ACTIONS
 import { useSelector } from 'react-redux'
 import { initialState } from '../redux/initialState';
+import { Link } from 'react-router-dom'
+import history from '../utils/history';
+import { withRouter } from 'react-router-dom';
 
 const Login = () => {
 
@@ -34,6 +37,7 @@ const Login = () => {
     const handleSubmit = e => {
         e.preventDefault();
         userLogin(email, password)
+        setTimeout(()=> history.push("/user"), 1000 );
     }
 
     const disabled = () => {
@@ -44,14 +48,16 @@ const Login = () => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit} className='login-form'>
+            <form className='login-form'>
                 <input type='email' name='email' placeholder='Email' onChange={handleEmailChange}/>
                 <input type='password' name='password' placeholder='Password' onChange={handlePasswordChange}/>
-                <button disabled={disabled()}>Login</button>
+                <button type='submit' disabled={disabled()} onClick={handleSubmit}>Login</button>
             </form>
             <button onClick={handleRoleChange}>Switch to {currentRole === 'user' ? 'admin' : 'user'}</button>
         </div>
     )
 }
 
-export default Login;
+export default withRouter(Login);
+
+//for is not being submitted

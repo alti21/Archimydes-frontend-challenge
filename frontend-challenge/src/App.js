@@ -1,8 +1,9 @@
 import './App.scss';
 import Login from './components/Login';
-import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import { Router, Switch, Route, NavLink } from 'react-router-dom';
 import PrivateRoute from './utils/PrivateRoute';
 import CreateStory from './components/CreateStory';
+import history from './utils/history';
 
 function App() {
 
@@ -10,13 +11,13 @@ function App() {
   return (
     <div className="App">
 
-      <BrowserRouter>
+      <Router history={history}>
         <Switch>
-          <Route path="/user" component={Login} />
-          <Route path="/" component={CreateStory}/>
+          <Route exact path="/" component={Login} />
+          <PrivateRoute path="/user" component={CreateStory}/>
 
         </Switch>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }
