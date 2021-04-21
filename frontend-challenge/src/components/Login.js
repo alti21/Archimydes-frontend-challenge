@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { login, roleChange } from '../redux/actions' //OUR ACTIONS
 import { useSelector } from 'react-redux'
@@ -14,6 +14,8 @@ const Login = () => {
     const usedispatch = useDispatch();
     const userLogin = (email, password, isAdmin) => usedispatch(login({'email': email, 'password': password, 'isAdmin': isAdmin }));
 
+    const loginStatus = useSelector((state)=> state.loginReducer.isLoggedIn)//be true after clicking login button
+    
     const handleRoleChange = e => {
 
         setIsAdmin(true)
@@ -33,8 +35,13 @@ const Login = () => {
     const handleSubmit = e => {
         e.preventDefault();
         userLogin(email, password, isAdmin)
-        setTimeout(()=> history.push("/Archimydes-frontend-challenge/user"), 1000 );
     }
+
+    useEffect(()=>{
+        if(loginStatus)
+            setTimeout(()=> history.push("/user"), 1000 ); //loggin in directs to new page
+    },[loginStatus])
+
 
     const disabled = () => {
         return email === "" || password === ""

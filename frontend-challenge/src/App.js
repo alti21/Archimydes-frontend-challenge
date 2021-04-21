@@ -1,6 +1,6 @@
 import './App.scss';
 import Login from './components/Login';
-import { Router, Switch, Route, NavLink } from 'react-router-dom';
+import { Router, Switch, Route, NavLink, HashRouter } from 'react-router-dom';
 import PrivateRoute from './utils/PrivateRoute';
 import CreateStory from './components/CreateStory';
 import history from './utils/history';
@@ -25,12 +25,12 @@ function App() {
 
       <Router history={history}>
         <Switch>
-          <Route exact path="/Archimydes-frontend-challenge" component={Login} />
-          <PrivateRoute path="/Archimydes-frontend-challenge/user" component={CreateStory}/>
-          <PrivateRoute path="/Archimydes-frontend-challenge/userStories" component={StoryList}/>
-          <PrivateRoute path="/Archimydes-frontend-challenge/userStory" component={Story}/>
+          <Route exact path="/" component={Login} />
+          <PrivateRoute path="/user" component={CreateStory}/>
+          <PrivateRoute path="/userStories" component={StoryList}/>
+          <PrivateRoute path="/userStory" component={Story}/>
         </Switch>
-        <Link to="/Archimydes-frontend-challenge/" onClick={handleLogout}>Logout</Link>
+        <Link to="/" onClick={handleLogout}>Logout</Link>
       </Router>
     </div>
   );

@@ -28,7 +28,7 @@ const StoryList = () => {
         console.log('test')
         if(admin) {//admin click on story to view using get request with id, use {story.id} in this file
             viewStories(id)
-            setTimeout(()=> history.push("/Archimydes-frontend-challenge/userStory"), 1000 )
+            setTimeout(()=> history.push("/userStory"), 1000 )
         }
     }
 
@@ -58,7 +58,7 @@ const StoryList = () => {
                 
                 {currStories.map(story => {
                 return (
-                    <div className={`row bg-black text-white ${backgroundColor(story.status)}`} onClick={()=>handleClick(story.id)}>
+                    <div key={story.id} className={`row bg-black text-white ${backgroundColor(story.status)}`} onClick={()=>handleClick(story.id)}>
                         <div className='col'>{story.summary}</div>
                         <div className='col'>{story.description}</div>
                         <div className='col'>{story.type}</div>
