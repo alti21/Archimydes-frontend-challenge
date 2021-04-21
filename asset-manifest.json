@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Archimydes-frontend-challenge/static/css/main.5f55a302.chunk.css",
-    "main.js": "/Archimydes-frontend-challenge/static/js/main.56bb9487.chunk.js",
-    "main.js.map": "/Archimydes-frontend-challenge/static/js/main.56bb9487.chunk.js.map",
+    "main.js": "/Archimydes-frontend-challenge/static/js/main.c1bc28a8.chunk.js",
+    "main.js.map": "/Archimydes-frontend-challenge/static/js/main.c1bc28a8.chunk.js.map",
     "runtime-main.js": "/Archimydes-frontend-challenge/static/js/runtime-main.942a600e.js",
     "runtime-main.js.map": "/Archimydes-frontend-challenge/static/js/runtime-main.942a600e.js.map",
     "static/js/2.0255d61e.chunk.js": "/Archimydes-frontend-challenge/static/js/2.0255d61e.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.942a600e.js",
     "static/js/2.0255d61e.chunk.js",
     "static/css/main.5f55a302.chunk.css",
-    "static/js/main.56bb9487.chunk.js"
+    "static/js/main.c1bc28a8.chunk.js"
   ]
 }
