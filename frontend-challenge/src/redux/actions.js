@@ -27,6 +27,13 @@ const getStoryState = (storyData) => {
   };
 };
 
+const getSingleStoryState = (storyData) => {
+  return {
+    type: t.GET_STORY,
+    payload: storyData, //storyData is the object with summary, description, type, etc.
+  };
+};
+
 export const login = (loginInput) => { //our login action
     const { email, password, isAdmin } = loginInput;
     return (dispatch) => {  // don't forget to use dispatch here!
@@ -98,7 +105,7 @@ export const viewStory = id => {
         // if (json.msg === 'success') { // response success checking logic could differ
             console.log(json)
             
-         //   dispatch(getStoryState( {...json } )); // our action is called here with object as parameter, this is our payload
+            dispatch(getSingleStoryState( {...json } )); // our action is called here with object as parameter, this is our payload
             //we appended json object to our state
             //   } else {
         //     alert('Login Failed', 'Email or Password is incorrect');
@@ -124,15 +131,6 @@ export const logout = () => {
   };
 }
 
-/**
- * story input:
-{
-  "summary": "string",
-  "description": "string",
-  "type": "string",
-  "complexity": "string"
-}
- */
 console.log(token)
 
 export const createStory = storyInput => {
@@ -178,26 +176,30 @@ export const addStory = story => {
     }
 }
 
-  /**
-   JSON reponse body:
-   {
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZmlyc3ROYW1lIjoiSGlsZGEiLCJsYXN0TmFtZSI6IkRheSIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTYxODk0NzE3MH0.llwr_9ku7ilzlfXdQeKAJ3ZXu5zB1xSX8r954z9VrnM",
-  "id": 2,
-  "firstName": "Hilda",
-  "lastName": "Day",
-  "role": "Admin"
+export const setStatus = (id, status) => {
+  return (dispatch) => {  // don't forget to use dispatch here!
+      return fetch(`http://localhost:3000/api/v1/stories/${id}/${status}`, {
+        method: 'PUT',
+        headers: {  
+          Accept: 'application/json',
+          'Content-Type': 'text/html',
+          'Authorization': `Bearer ${token}`
+        },
+      })
+        .then((response) => response.json()) //json will be the response body
+        .then((json) => {
+        // if (json.msg === 'success') { // response success checking logic could differ
+            console.log(json)
+            
+         //   dispatch(getStoryState( {...json } )); // our action is called here with object as parameter, this is our payload
+            //we appended json object to our state
+            //   } else {
+        //     alert('Login Failed', 'Email or Password is incorrect');
+        //  }
+        })
+        .catch((err) => {
+          alert('Login Failed', 'Some error occured, please retry');
+          console.log(err);
+        });
+    };
 }
-   */
-
-// export const roleChangeToUser = () => {
-//     return {
-//         type: t.SET_ROLE_USER,
-//       };
-// }
-
-// export const roleChangeToAdmin = () => {
-//     return {
-//         type: t.SET_ROLE_ADMIN,
-//       };
-// }
-

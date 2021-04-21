@@ -26,7 +26,7 @@ const StoryList = () => {
     const handleClick = id => {
         
         console.log('test')
-        if(!admin) {//admin click on story to view using get request with id, use {story.id} in this file
+        if(admin) {//admin click on story to view using get request with id, use {story.id} in this file
             viewStories(id)
             setTimeout(()=> history.push("/userStory"), 1000 )
         }
@@ -60,9 +60,6 @@ const StoryList = () => {
                     
                 )
             })}
-
-        
-            
             </section>
             
         </div>

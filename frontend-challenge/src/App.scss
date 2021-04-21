@@ -60,3 +60,15 @@ section .col {
   display: table-cell;
   padding: 1em;
 }
+
+.btn {
+  padding: 1em;
+  margin: .5em;
+  color: #fff;
+  &-accept {
+    background: #008000;
+  }
+  &-reject {
+    background: #ff0000;
+  }
+}
