@@ -48,10 +48,10 @@ export const login = (loginInput) => { //our login action
     };
 };
 
-export const roleChange = role => {
+export const roleChange = () => {
     return {
         type: t.SET_ROLE_STATE,
-        payload: role
+        //payload: role
       };
 }
 

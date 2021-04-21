@@ -5,7 +5,8 @@ export const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case t.SET_ROLE_STATE:
       return {
-        initialState
+        ...state,
+        isAdmin: true
       };
     case t.SET_LOGIN_STATE:
       return {
