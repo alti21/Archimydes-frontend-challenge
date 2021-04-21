@@ -45,3 +45,22 @@ export const login = (loginInput) => { //our login action
   "role": "Admin"
 }
    */
+
+// export const roleChangeToUser = () => {
+//     return {
+//         type: t.SET_ROLE_USER,
+//       };
+// }
+
+// export const roleChangeToAdmin = () => {
+//     return {
+//         type: t.SET_ROLE_ADMIN,
+//       };
+// }
+
+export const roleChange = role => {
+    return {
+        type: t.SET_ROLE_STATE,
+        payload: role
+      };
+}

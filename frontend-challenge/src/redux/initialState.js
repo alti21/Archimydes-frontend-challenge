@@ -1,7 +1,7 @@
 export const initialState = {
     isLoggedIn: false,
     userId: '',
-    role: '',
+    role: 'user',
     token: '',
     data: '',
   };
