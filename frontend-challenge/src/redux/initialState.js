@@ -6,4 +6,12 @@ export const initialState = {
     role: 'user',
     token: getToken(),
     data: '',
+    stories: [{
+        complexity: "",
+        cost: 0,
+        description: "",
+        summary: "",
+        time: "",
+        type: ""
+    }]
   };

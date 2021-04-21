@@ -15,7 +15,7 @@ const setLoginState = (loginData) => {
 const setStoryState = (storyData) => {
     return {
       type: t.CREATE_STORY,
-      payload: storyData,
+      payload: storyData, //storyData is the object with summary, description, type, etc.
     };
   };
 
@@ -99,6 +99,13 @@ export const createStory = storyInput => {
           console.log(err);
         });
     };
+}
+
+export const addStory = story => {
+    return {
+        type: t.ADD_STORY,
+        payload: story,
+    }
 }
 
   /**

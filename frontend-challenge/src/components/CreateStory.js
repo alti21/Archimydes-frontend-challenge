@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { createStory } from '../redux/actions'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import history from '../utils/history';
+import { withRouter } from 'react-router-dom';
 
 const CreateStory = () => {
 
@@ -45,12 +47,16 @@ const CreateStory = () => {
         setCost(e.target.value)
     }
 
+   // const currStory = useSelector((state)=> state.storyReducer.story)
     const handleSubmit = e => {
         e.preventDefault();
         userCreateStory(summary,description,type,complexity,time,cost)
-      //  setTimeout(()=> history.push("/user"), 1000 );
+        setTimeout(()=> history.push("/userStories"), 1000 );
+      //setTimeout(()=> console.log(currStory) ,1000)
     }
 
+    
+    
     return (
         <div>
             <form className='create-story-form'>
@@ -81,4 +87,4 @@ const CreateStory = () => {
     )
 }
 
-export default CreateStory;
+export default withRouter(CreateStory);

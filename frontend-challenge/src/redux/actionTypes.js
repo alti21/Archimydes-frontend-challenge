@@ -1,3 +1,4 @@
 export const SET_LOGIN_STATE = "SET_LOGIN_STATE"
 export const SET_ROLE_STATE = "SET_ROLE_STATE"
 export const CREATE_STORY = "CREATE_STORY"
+export const ADD_STORY = "ADD_STORY"

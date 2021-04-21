@@ -40,3 +40,22 @@
   }
 }
 
+.story-container {
+  margin: 1em auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+section {
+  display: table;
+  width: 100%;
+}
+
+section > * {
+  display: table-row;
+}
+
+section .col {
+  display: table-cell;
+}

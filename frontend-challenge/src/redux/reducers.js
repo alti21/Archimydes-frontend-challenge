@@ -5,8 +5,7 @@ export const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case t.SET_ROLE_STATE:
       return {
-        ...state,
-        role: action.payload,
+        initialState
       };
     case t.SET_LOGIN_STATE:
       return {
@@ -24,7 +23,21 @@ export const storyReducer = (state = [], action) => {
     case t.CREATE_STORY:
       return {
         ...state,
-        story: action.payload,
+        stories: action.payload,
+      };
+    // case t.ADD_STORY:
+    //   return {
+    //     ...state,
+    //     stories: [...state.stories, action.payload], //stories is an object
+    //   };
+    case t.SET_ROLE_STATE:
+      return {
+        stories: [{complexity: "",
+        cost: 0,
+        description: "",
+        summary: "",
+        time: "",
+        type: ""}]
       };
     default:
       return state;
