@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { addStory } from '../redux/actions'
+import { getStories } from '../redux/actions' //OUR ACTIONS
+
 const arr = [];
 
 const StoryList = () => {
 
     const [ storyArray, setStoryArray ] = useState([])
 
-    const currStory = useSelector((state)=> state.storyReducer.stories)
-    // const usedispatch = useDispatch();
+    const currStories = useSelector((state)=> state.storyReducer.stories)
+    const usedispatch = useDispatch();
+    const userStories = (email, password, isAdmin) => usedispatch(getStories());
     // let story = {}
       useEffect(() => {
-        setStoryArray([...storyArray, currStory])
-        arr.push(currStory)
+        userStories()
+
+       // setStoryArray([...storyArray, currStory])
+       // arr.push(currStory)
         // setStoryArray([...storyArray, currStory])
     //     localStorage.setItem("stories", storyArray);
     //     console.log('test')
@@ -20,10 +25,11 @@ const StoryList = () => {
     //         story = localStorage.getItem('stories');
     //         console.log(story)
     //     }, 500)
-     }, [currStory]);
-    // console.log(storyArray)
+     }, []);
+     console.log('test')
+     console.log(currStories)
     
-    console.log(storyArray)
+   // console.log(storyArray)
 
   //  arr.push(storyArray)
 
@@ -32,7 +38,9 @@ const StoryList = () => {
    // const currStory = useSelector((state)=> state.storyReducer.stories)
 
     //console.log(currStory[0])
-    
+
+    const admin = useSelector((state)=> state.loginReducer.isAdmin)
+  //  console.log(admin)
     return (
         <div>
             
@@ -48,7 +56,7 @@ const StoryList = () => {
                    
                 </header>
                 
-                {arr.map(story => {
+                {currStories.map(story => {
                 return (
                     <div className='row'>
                         <div className='col'>{story.summary}</div>
@@ -61,11 +69,19 @@ const StoryList = () => {
                     
                 )
             })}
+
+            {admin ? 
+                (<div>admin</div>) 
+                : 
+                (<div>user</div>)
+            }
             
             </section>
             
         </div>
     )
 }
+
+
 
 export default StoryList;

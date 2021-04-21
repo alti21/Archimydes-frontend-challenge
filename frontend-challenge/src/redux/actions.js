@@ -17,7 +17,14 @@ const setStoryState = (storyData) => {
       type: t.CREATE_STORY,
       payload: storyData, //storyData is the object with summary, description, type, etc.
     };
+};
+
+const getStoryState = (storyData) => {
+  return {
+    type: t.GET_STORIES,
+    payload: storyData, //storyData is the object with summary, description, type, etc.
   };
+};
 
 export const login = (loginInput) => { //our login action
     const { email, password, isAdmin } = loginInput;
@@ -47,6 +54,33 @@ export const login = (loginInput) => { //our login action
         });
     };
 };
+
+export const getStories = () => {
+    return (dispatch) => {  // don't forget to use dispatch here!
+      return fetch('http://localhost:3000/api/v1/stories', {
+        method: 'GET',
+        headers: {  
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+      })
+        .then((response) => response.json()) //json will be the response body
+        .then((json) => {
+        // if (json.msg === 'success') { // response success checking logic could differ
+            console.log(json)
+            dispatch(getStoryState( [...json ])); // our action is called here with object as parameter, this is our payload
+            //we appended json object to our state
+            //   } else {
+        //     alert('Login Failed', 'Email or Password is incorrect');
+        //  }
+        })
+        .catch((err) => {
+          alert('Login Failed', 'Some error occured, please retry');
+          console.log(err);
+        });
+    };
+}
 
 export const roleChange = () => {
     return {

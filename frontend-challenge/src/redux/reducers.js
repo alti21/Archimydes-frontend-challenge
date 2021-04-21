@@ -30,6 +30,11 @@ export const storyReducer = (state = [], action) => {
         ...state,
         stories: action.payload,
       };
+    case t.GET_STORIES:
+      return {
+        ...state,
+        stories: action.payload,
+      };
     // case t.ADD_STORY:
     //   return {
     //     ...state,
