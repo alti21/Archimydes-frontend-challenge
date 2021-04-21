@@ -5,9 +5,17 @@ import PrivateRoute from './utils/PrivateRoute';
 import CreateStory from './components/CreateStory';
 import history from './utils/history';
 import StoryList from './components/StoryList';
+import { Link } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { logout } from './redux/actions' //OUR ACTIONS
 
 function App() {
 
+  const usedispatch = useDispatch();
+  const userLogout = () => usedispatch(logout());
+  const handleLogout = () => {
+    userLogout()
+  }
 
   return (
     <div className="App">
@@ -18,6 +26,7 @@ function App() {
           <PrivateRoute path="/user" component={CreateStory}/>
           <PrivateRoute path="/userStories" component={StoryList}/>
         </Switch>
+        <Link to="/" onClick={handleLogout}>Logout</Link>
       </Router>
     </div>
   );

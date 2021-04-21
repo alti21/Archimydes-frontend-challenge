@@ -3,7 +3,7 @@ import { getToken } from '../utils/Common'
 export const initialState = {
     isLoggedIn: false,
     userId: '',
-    role: 'user',
+    isAdmin: false,
     token: getToken(),
     data: '',
     stories: [{

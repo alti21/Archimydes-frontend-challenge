@@ -13,6 +13,10 @@ export const loginReducer = (state = initialState, action) => {
         ...action.payload, // this is what we expect to get back from API call and login page input
         isLoggedIn: true, // we set this as true on login
       };
+    case t.LOGOUT: 
+      return {
+        initialState
+      };
     default:
       return state;
   } 
@@ -30,7 +34,7 @@ export const storyReducer = (state = [], action) => {
     //     ...state,
     //     stories: [...state.stories, action.payload], //stories is an object
     //   };
-    case t.SET_ROLE_STATE:
+    case t.LOGOUT:
       return {
         stories: [{complexity: "",
         cost: 0,

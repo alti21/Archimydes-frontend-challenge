@@ -20,7 +20,7 @@ const setStoryState = (storyData) => {
   };
 
 export const login = (loginInput) => { //our login action
-    const { email, password } = loginInput;
+    const { email, password, isAdmin } = loginInput;
     return (dispatch) => {  // don't forget to use dispatch here!
       return fetch('http://localhost:3000/api/v1/signin', {
         method: 'POST',
@@ -34,7 +34,7 @@ export const login = (loginInput) => { //our login action
         .then((json) => {
         // if (json.msg === 'success') { // response success checking logic could differ
            // console.log(json)
-            dispatch(setLoginState({ ...json, userId: email })); // our action is called here with object as parameter, this is our payload
+            dispatch(setLoginState({ ...json, userId: email, isAdmin: isAdmin })); // our action is called here with object as parameter, this is our payload
             //we appended json object to our state
             //   } else {
         //     alert('Login Failed', 'Email or Password is incorrect');
@@ -53,6 +53,12 @@ export const roleChange = role => {
         type: t.SET_ROLE_STATE,
         payload: role
       };
+}
+
+export const logout = () => {
+  return {
+    type: t.LOGOUT,
+  };
 }
 
 /**
