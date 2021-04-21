@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { logout } from './redux/actions' //OUR ACTIONS
 import Story from './components/Story'
+import { removeUserSession } from './utils/Common'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
   const userLogout = () => usedispatch(logout());
   const handleLogout = () => {
     userLogout()
+    removeUserSession()
   }
 
   return (
