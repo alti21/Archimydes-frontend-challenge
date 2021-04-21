@@ -32,6 +32,15 @@ const StoryList = () => {
         }
     }
 
+    const backgroundColor = status => {
+        if(status === 'accepted') {
+            return 'bg-green'
+        }
+        else if(status === 'rejected') {
+            return 'bg-red'
+        }
+    }
+
     return (
         <div>
             
@@ -49,7 +58,7 @@ const StoryList = () => {
                 
                 {currStories.map(story => {
                 return (
-                    <div className='row' onClick={()=>handleClick(story.id)}>
+                    <div className={`row bg-black text-white ${backgroundColor(story.status)}`} onClick={()=>handleClick(story.id)}>
                         <div className='col'>{story.summary}</div>
                         <div className='col'>{story.description}</div>
                         <div className='col'>{story.type}</div>
