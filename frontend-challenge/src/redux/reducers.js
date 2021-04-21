@@ -19,12 +19,12 @@ export const loginReducer = (state = initialState, action) => {
   } 
 };
 
-export const storyReducer = (state = initialState, action) => {
+export const storyReducer = (state = [], action) => {
   switch (action.type) {
     case t.CREATE_STORY:
       return {
         ...state,
-        role: action.payload,
+        story: action.payload,
       };
     default:
       return state;

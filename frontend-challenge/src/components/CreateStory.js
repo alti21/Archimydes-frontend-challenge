@@ -48,14 +48,14 @@ const CreateStory = () => {
                 <textarea name="desc" type='text' onChange={handleDescriptionChange}/>
                 <label for="type">Type:</label>
                 <select name="type" onChange={handleTypeChange}>
-                    <option value="enhancement">Enchancement</option>
+                    <option value="enhancement" selected="selected">Enchancement</option>
                     <option value="bugfix">Bugfix</option>
                     <option value="development">Development</option>
                     <option value="qa">QA</option>
                 </select>
                 <label for="complexity">Complexity:</label>
                 <select name="complexity" onChange={handleComplexityChange}>
-                    <option value="low">Low</option>
+                    <option value="low" selected="selected">Low</option>
                     <option value="mid">Mid</option>
                     <option value="high">High</option>
                 </select>
