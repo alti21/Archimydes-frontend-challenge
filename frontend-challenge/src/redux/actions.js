@@ -67,7 +67,7 @@ export const roleChange = role => {
 console.log(token)
 
 export const createStory = storyInput => {
-    const { summary, description, type, complexity } = storyInput;
+    const { summary, description, type, complexity, time, cost } = storyInput;
     return (dispatch) => {  // don't forget to use dispatch here!
       return fetch('http://localhost:3000/api/v1/stories', {
         method: 'POST',
@@ -86,7 +86,9 @@ export const createStory = storyInput => {
                 summary: summary,
                 description: description,
                 type: type,
-                complexity: complexity
+                complexity: complexity,
+                time: time,
+                cost: cost
             })); // our action is called here
         //   } else {
         //     alert('Login Failed', 'Email or Password is incorrect');

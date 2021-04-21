@@ -8,13 +8,17 @@ const CreateStory = () => {
     const [description, setDescription] = useState("");
     const [type, setType] = useState("");
     const [complexity, setcomplexity] = useState("");
+    const [time, setTime] = useState("");
+    const [cost, setCost] = useState(0);
 
     const usedispatch = useDispatch();
     const userCreateStory = (summary, description, type, complexity) => usedispatch(createStory({
                                                                                     'summary': summary,
                                                                                     'description': description,
                                                                                     'type': type,
-                                                                                    'complexity': complexity 
+                                                                                    'complexity': complexity,
+                                                                                    'time': time,
+                                                                                    'cost': cost 
                                                                                 }));
 
     const handleSummaryChange = e => {
@@ -33,9 +37,17 @@ const CreateStory = () => {
         setcomplexity(e.target.value)
     }
 
+    const handleTimeChange = e => {
+        setTime(e.target.value)
+    }
+
+    const handleCostChange = e => {
+        setCost(e.target.value)
+    }
+
     const handleSubmit = e => {
         e.preventDefault();
-        userCreateStory(summary,description,type,complexity)
+        userCreateStory(summary,description,type,complexity,time,cost)
       //  setTimeout(()=> history.push("/user"), 1000 );
     }
 
@@ -48,21 +60,21 @@ const CreateStory = () => {
                 <textarea name="desc" type='text' onChange={handleDescriptionChange}/>
                 <label for="type">Type:</label>
                 <select name="type" onChange={handleTypeChange}>
-                    <option value="enhancement" selected="selected">Enchancement</option>
+                    <option value="enhancement" defaultValue>Enchancement</option>
                     <option value="bugfix">Bugfix</option>
                     <option value="development">Development</option>
                     <option value="qa">QA</option>
                 </select>
                 <label for="complexity">Complexity:</label>
                 <select name="complexity" onChange={handleComplexityChange}>
-                    <option value="low" selected="selected">Low</option>
+                    <option value="low" defaultValue>Low</option>
                     <option value="mid">Mid</option>
                     <option value="high">High</option>
                 </select>
                 <label for="time">Estimated time for completion:</label>
-                <input name="time" type='text' />
+                <input name="time" type='text' onChange={handleTimeChange}/>
                 <label for="cost">Cost:</label>
-                <input name="cost" type='number' />
+                <input name="cost" type='number' onChange={handleCostChange}/>
                 <button onClick={handleSubmit}>Submit</button>
             </form>
         </div>
