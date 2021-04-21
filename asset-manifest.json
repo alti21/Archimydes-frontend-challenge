@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/Archimydes-frontend-challenge/static/css/main.5f55a302.chunk.css",
-    "main.js": "/Archimydes-frontend-challenge/static/js/main.c1bc28a8.chunk.js",
-    "main.js.map": "/Archimydes-frontend-challenge/static/js/main.c1bc28a8.chunk.js.map",
+    "main.js": "/Archimydes-frontend-challenge/static/js/main.bc18463b.chunk.js",
+    "main.js.map": "/Archimydes-frontend-challenge/static/js/main.bc18463b.chunk.js.map",
     "runtime-main.js": "/Archimydes-frontend-challenge/static/js/runtime-main.942a600e.js",
     "runtime-main.js.map": "/Archimydes-frontend-challenge/static/js/runtime-main.942a600e.js.map",
-    "static/js/2.0255d61e.chunk.js": "/Archimydes-frontend-challenge/static/js/2.0255d61e.chunk.js",
-    "static/js/2.0255d61e.chunk.js.map": "/Archimydes-frontend-challenge/static/js/2.0255d61e.chunk.js.map",
+    "static/js/2.aee68cb2.chunk.js": "/Archimydes-frontend-challenge/static/js/2.aee68cb2.chunk.js",
+    "static/js/2.aee68cb2.chunk.js.map": "/Archimydes-frontend-challenge/static/js/2.aee68cb2.chunk.js.map",
     "static/js/3.baf4b0ba.chunk.js": "/Archimydes-frontend-challenge/static/js/3.baf4b0ba.chunk.js",
     "static/js/3.baf4b0ba.chunk.js.map": "/Archimydes-frontend-challenge/static/js/3.baf4b0ba.chunk.js.map",
     "index.html": "/Archimydes-frontend-challenge/index.html",
     "static/css/main.5f55a302.chunk.css.map": "/Archimydes-frontend-challenge/static/css/main.5f55a302.chunk.css.map",
-    "static/js/2.0255d61e.chunk.js.LICENSE.txt": "/Archimydes-frontend-challenge/static/js/2.0255d61e.chunk.js.LICENSE.txt"
+    "static/js/2.aee68cb2.chunk.js.LICENSE.txt": "/Archimydes-frontend-challenge/static/js/2.aee68cb2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.942a600e.js",
-    "static/js/2.0255d61e.chunk.js",
+    "static/js/2.aee68cb2.chunk.js",
     "static/css/main.5f55a302.chunk.css",
-    "static/js/main.c1bc28a8.chunk.js"
+    "static/js/main.bc18463b.chunk.js"
   ]
 }
