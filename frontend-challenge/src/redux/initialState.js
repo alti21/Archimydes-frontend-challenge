@@ -13,5 +13,6 @@ export const initialState = {
         summary: "",
         time: "",
         type: ""
-    }]
+    }],
+    story: {}
   };

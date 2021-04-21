@@ -8,6 +8,7 @@ import StoryList from './components/StoryList';
 import { Link } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { logout } from './redux/actions' //OUR ACTIONS
+import Story from './components/Story'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/" component={Login} />
           <PrivateRoute path="/user" component={CreateStory}/>
           <PrivateRoute path="/userStories" component={StoryList}/>
+          <PrivateRoute path="/userStory" component={Story}/>
         </Switch>
         <Link to="/" onClick={handleLogout}>Logout</Link>
       </Router>

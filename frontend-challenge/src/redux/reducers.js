@@ -28,13 +28,18 @@ export const storyReducer = (state = [], action) => {
     case t.CREATE_STORY:
       return {
         ...state,
-        stories: action.payload,
+        stories: [...state.stories, action.payload],
       };
     case t.GET_STORIES:
       return {
         ...state,
         stories: action.payload,
       };
+    // case t.GET_STORY:
+    //   return {
+    //     ...state,
+    //     story: action.payload,
+    //   };
     // case t.ADD_STORY:
     //   return {
     //     ...state,

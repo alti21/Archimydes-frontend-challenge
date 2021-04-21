@@ -2,6 +2,7 @@ import * as t from './actionTypes';
 import { setUserSession } from '../utils/Common';
 import { getToken } from '../utils/Common'
 
+
 const token = getToken();
 
 // this is what our action should look like which dispatches the "payload" to reducer
@@ -82,6 +83,34 @@ export const getStories = () => {
     };
 }
 
+export const viewStory = id => {
+  return (dispatch) => {  // don't forget to use dispatch here!
+      return fetch(`http://localhost:3000/api/v1/stories/${id}`, {
+        method: 'GET',
+        headers: {  
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+      })
+        .then((response) => response.json()) //json will be the response body
+        .then((json) => {
+        // if (json.msg === 'success') { // response success checking logic could differ
+            console.log(json)
+            
+         //   dispatch(getStoryState( {...json } )); // our action is called here with object as parameter, this is our payload
+            //we appended json object to our state
+            //   } else {
+        //     alert('Login Failed', 'Email or Password is incorrect');
+        //  }
+        })
+        .catch((err) => {
+          alert('Login Failed', 'Some error occured, please retry');
+          console.log(err);
+        });
+    };
+}
+
 export const roleChange = () => {
     return {
         type: t.SET_ROLE_STATE,
@@ -122,6 +151,7 @@ export const createStory = storyInput => {
         .then((json) => {
         // if (json.msg === 'success') { // response success checking logic could differ
             console.log(json)
+            //dispatch(setStoryState( [...json ]));
             dispatch(setStoryState({  // our action is called here with object as parameter, this is our payload
                 summary: summary,
                 description: description,

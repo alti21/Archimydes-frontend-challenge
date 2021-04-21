@@ -1,46 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { addStory } from '../redux/actions'
-import { getStories } from '../redux/actions' //OUR ACTIONS
-
-const arr = [];
+import { getStories, viewStory } from '../redux/actions' //OUR ACTIONS
+import history from '../utils/history';
+import { withRouter } from 'react-router-dom';
 
 const StoryList = () => {
 
-    const [ storyArray, setStoryArray ] = useState([])
 
     const currStories = useSelector((state)=> state.storyReducer.stories)
     const usedispatch = useDispatch();
-    const userStories = (email, password, isAdmin) => usedispatch(getStories());
+    const userStories = () => usedispatch(getStories());
+    const viewStories = (id) => usedispatch(viewStory(id));
     // let story = {}
       useEffect(() => {
         userStories()
 
-       // setStoryArray([...storyArray, currStory])
-       // arr.push(currStory)
-        // setStoryArray([...storyArray, currStory])
-    //     localStorage.setItem("stories", storyArray);
-    //     console.log('test')
-    //     setTimeout(()=> {
-    //         story = localStorage.getItem('stories');
-    //         console.log(story)
-    //     }, 500)
      }, []);
      console.log('test')
      console.log(currStories)
-    
-   // console.log(storyArray)
 
-  //  arr.push(storyArray)
-
-    //arr.push(currStory)
-   //console.log(arr)
-   // const currStory = useSelector((state)=> state.storyReducer.stories)
-
-    //console.log(currStory[0])
 
     const admin = useSelector((state)=> state.loginReducer.isAdmin)
-  //  console.log(admin)
+  
+    const handleClick = id => {
+        
+        console.log('test')
+        if(!admin) {//admin click on story to view using get request with id, use {story.id} in this file
+            viewStories(id)
+            setTimeout(()=> history.push("/userStory"), 1000 )
+        }
+    }
+
     return (
         <div>
             
@@ -58,23 +49,19 @@ const StoryList = () => {
                 
                 {currStories.map(story => {
                 return (
-                    <div className='row'>
+                    <div className='row' onClick={()=>handleClick(story.id)}>
                         <div className='col'>{story.summary}</div>
                         <div className='col'>{story.description}</div>
                         <div className='col'>{story.type}</div>
                         <div className='col'>{story.complexity}</div>
-                        <div className='col'>{story.time}</div>
+                        <div className='col'>{story.estimatedHrs}</div>
                         <div className='col'>{story.cost}</div>
                     </div>   
                     
                 )
             })}
 
-            {admin ? 
-                (<div>admin</div>) 
-                : 
-                (<div>user</div>)
-            }
+        
             
             </section>
             
@@ -84,4 +71,4 @@ const StoryList = () => {
 
 
 
-export default StoryList;
+export default withRouter(StoryList);
