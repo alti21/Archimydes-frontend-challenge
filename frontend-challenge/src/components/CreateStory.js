@@ -14,7 +14,7 @@ const CreateStory = () => {
     const [cost, setCost] = useState(0);
 
     const usedispatch = useDispatch();
-    const userCreateStory = (summary, description, type, complexity) => usedispatch(createStory({
+    const userCreateStory = (summary, description, type, complexity, time, cost) => usedispatch(createStory({
                                                                                     'summary': summary,
                                                                                     'description': description,
                                                                                     'type': type,
@@ -49,7 +49,8 @@ const CreateStory = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        userCreateStory(summary,description,type,complexity,time,cost)
+        //userCreateStory(summary,description,type,complexity,time,cost)
+        setTimeout(()=> userCreateStory(summary,description,type,complexity,time,cost), 1000 );
         setTimeout(()=> history.push("/userStories"), 1000 );
     }
 
