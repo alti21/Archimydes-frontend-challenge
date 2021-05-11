@@ -1,6 +1,6 @@
 {
-  "name": "frontend-challenge",
-  "homepage": "http://alti21.github.io/Archimydes-frontend-challenge",
+  "name": "story-pick",
+  "homepage": "http://alti21.github.io/StoryPick",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
