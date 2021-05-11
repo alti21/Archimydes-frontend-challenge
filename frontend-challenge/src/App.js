@@ -22,7 +22,6 @@ function App() {
 
   return (
     <div className="App">
-
       <Router history={history}>
         <Switch>
           <Route exact path="/" component={Login} />

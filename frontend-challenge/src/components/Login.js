@@ -39,14 +39,14 @@ const Login = () => {
 
     useEffect(()=>{
         if(loginStatus)
-            setTimeout(()=> history.push("/user"), 1000 ); //loggin in directs to new page
+            setTimeout(()=> history.push("/user"), 1000 ); //loggin in directs to new page,    no need to use setTimeout here, instead just wait for the promise to resovle, then login
     },[loginStatus])
 
 
     const disabled = () => {
         return email === "" || password === ""
     }
-
+//handleSubmit should be in form tag as an attribute instead of in onClick in button tag
     return (
         <div>
             <form className='login-form'>

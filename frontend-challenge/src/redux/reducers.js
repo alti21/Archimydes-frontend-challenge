@@ -41,7 +41,7 @@ export const storyReducer = (state = [], action) => {
         story: action.payload,
       };
     case t.LOGOUT:
-      return {
+      return { //no need for story state since we post that data to the backend anyway!!!
         stories: [{complexity: "",
         cost: 0,
         description: "",

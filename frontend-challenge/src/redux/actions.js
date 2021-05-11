@@ -92,7 +92,7 @@ export const viewStory = id => {
         .then((response) => response.json()) //json will be the response body
         .then((json) => {
             console.log(json)
-
+            //history push here
             dispatch(getSingleStoryState( {...json } )); // our action is called here with object as parameter, this is our payload
         })
         .catch((err) => {
